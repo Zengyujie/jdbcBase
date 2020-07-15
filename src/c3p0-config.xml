@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+
+<!--  <default-config>
+    <property name="automaticTestTable">con_test</property>
+    <property name="checkoutTimeout">30000</property>
+    <property name="idleConnectionTestPeriod">30</property>
+    <property name="initialPoolSize">10</property>
+    <property name="maxIdleTime">30</property>
+    <property name="maxPoolSize">100</property>
+    <property name="minPoolSize">10</property>
+    <property name="maxStatements">200</property>
+
+    <user-overrides user="test-user">
+      <property name="maxPoolSize">10</property>
+      <property name="minPoolSize">1</property>
+      <property name="maxStatements">0</property>
+    </user-overrides>
+
+  </default-config>
+  
+-->
+
+  <!-- This app is massive! -->
+  <named-config name="c3p0_config"> 
+  	<!-- 获取连接的基本信息 -->
+  	<property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql://localhost:3306/test?characterEncoding=utf8</property>
+    <property name="user">root</property>
+    <property name="password">12345612</property>
+  	
+  	<!-- 当数据库连接池中连接数不够时，c3p0一次性向数据库中申请的连接数 -->>
+    <property name="acquireIncrement">50</property>
+    <!-- c3p0初始化时的连接数 -->
+    <property name="initialPoolSize">100</property>
+    <!-- c3p0中维护的最小连接数 -->
+    <property name="minPoolSize">50</property>
+    <!-- c3p0中维护的最大的连接数 -->
+    <property name="maxPoolSize">1000</property>
+
+    <!-- intergalactoApp adopts a different approach to configuring statement caching -->
+    <!-- c3p0维护的最多statement个数 -->>
+    <property name="maxStatements">0</property> 
+    <!-- c3p0中每个连接最多使用的statement个数 -->
+    <property name="maxStatementsPerConnection">5</property>
+
+<!--
+    <user-overrides user="master-of-the-universe"> 
+      <property name="acquireIncrement">1</property>
+      <property name="initialPoolSize">1</property>
+      <property name="minPoolSize">1</property>
+      <property name="maxPoolSize">5</property>
+      <property name="maxStatementsPerConnection">50</property>
+    </user-overrides>
+    
+ -->
+  </named-config>
+</c3p0-config>
